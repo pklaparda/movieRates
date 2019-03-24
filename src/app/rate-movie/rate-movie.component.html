@@ -1,0 +1,11 @@
+<h1 class="py-3">Search a movie and rate it!</h1>
+<form class="form-inline p-2">
+  <div class="form-group mb-2">
+    <input
+      #searchMovie
+      type="text"
+      class="form-control"
+      (input)="rateMovie(searchMovie.value)"
+    />
+  </div>
+</form>
