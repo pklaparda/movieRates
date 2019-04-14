@@ -7,7 +7,7 @@ import { Movie } from "./movie";
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const movies: Movie[] = [];
+    const movies: Movie[] = [{id:2, rating:[3],name:"peli"}];
     return movies;
   }
 

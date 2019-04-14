@@ -2,10 +2,23 @@
 <form class="form-inline p-2">
   <div class="form-group mb-2">
     <input
-      #searchMovie
+      #sMovie
       type="text"
       class="form-control"
-      (input)="rateMovie(searchMovie.value)"
+      (input)="searchMovie(sMovie.value)"
     />
   </div>
 </form>
+
+<ul *ngIf="movies">
+  <li *ngFor="let movie of movies" (click)="setSelected(movie)">{{movie.name}}</li>
+</ul>
+
+<div *ngIf="movieSelected">
+  <h3>Lets rate this one:</h3>
+  <p>Name: <strong>{{movieSelected.name}}</strong></p>
+  <p>Rate it:</p>
+  <bar-rating [(rate)]="selectedMovieRate" [max]="5" [theme]="'movie'" [showText]="true"
+  [titles]="['waste of time', 'Bad', 'Mediocre' , 'Good', 'Awesome']"></bar-rating>
+  <button [type]="submit" class="btn btn-success" (click)="saveRate()"></button>
+</div>

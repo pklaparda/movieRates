@@ -17,7 +17,8 @@ export class MoviesService {
   constructor(private http: HttpClient) {}
 
   searchMovies = (term: string) => {
-    return this.http.get(`${this.urlOmdb}&s=${term}`).pipe(
+    console.log("servicio..");
+    return this.http.get(`${this.urlOmdb}&type=movie&page=1&s=${term}`).pipe(
       tap(_res => console.log(_res)),
       catchError(this.handleError("searchMovies", []))
     );
